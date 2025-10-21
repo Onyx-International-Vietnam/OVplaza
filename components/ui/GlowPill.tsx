@@ -2,6 +2,7 @@
 
 import React from "react";
 import { TOKENS } from "@/tokens/tokens";
+import { useTheme } from "@/contexts/ThemeContext";
 
 type GlowPillProps = {
   children: React.ReactNode;
@@ -26,6 +27,7 @@ export default function GlowPill({
   fullWidth = false,
   type = "button",
 }: GlowPillProps) {
+  const { theme } = useTheme();
   const dotLeft = align === "right";
 
   // 🔹 padding và text size responsive
@@ -36,6 +38,17 @@ export default function GlowPill({
   const baseText = compact
     ? "text-[8px] sm:text-[12px] md:text-base"
     : "text-[12px] sm:text-[14px] md:text-[16px]";
+
+  const bgGradient = theme === "dark"
+    ? "linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.22) 100%)"
+    : "linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(248,247,252,.9) 100%)";
+
+  const borderColor = theme === "dark" ? TOKENS.pillBorder : "rgba(139,92,246,0.25)";
+  const textColor = theme === "dark" ? "text-white/90" : "text-slate-900";
+  
+  const boxShadow = theme === "dark"
+    ? (compact ? TOKENS.labelGlowMobile : TOKENS.labelGlowDesk)
+    : "0 2px 8px rgba(139,92,246,0.15), 0 1px 3px rgba(0,0,0,0.1)";
 
   return (
     <button
@@ -51,7 +64,8 @@ export default function GlowPill({
         baseText,
         "leading-none",
         "min-h-[36px] sm:min-h-[42px] md:min-h-[44px]",
-        "text-white/90 whitespace-nowrap",
+        textColor,
+        "whitespace-nowrap",
         fullWidth ? "truncate" : "max-w-full truncate",
         "backdrop-blur",
         "transition-[transform,box-shadow,background-color] duration-200",
@@ -62,10 +76,9 @@ export default function GlowPill({
         className,
       ].join(" ")}
       style={{
-        background:
-          "linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.22) 100%)",
-        border: `1.5px solid ${TOKENS.pillBorder}`,
-        boxShadow: compact ? TOKENS.labelGlowMobile : TOKENS.labelGlowDesk,
+        background: bgGradient,
+        border: `1.5px solid ${borderColor}`,
+        boxShadow: boxShadow,
         WebkitTapHighlightColor: "transparent",
       }}
       aria-disabled={disabled || undefined}
@@ -75,21 +88,25 @@ export default function GlowPill({
           aria-hidden
           className="shrink-0 rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3"
           style={{
-            background: TOKENS.pink,
-            boxShadow: "0 0 10px 1.5px " + TOKENS.pinkSoft,
+            background: theme === "dark" ? TOKENS.pink : "linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)",
+            boxShadow: theme === "dark" 
+              ? "0 0 10px 1.5px " + TOKENS.pinkSoft
+              : "0 0 8px 1px rgba(236,72,153,0.4)",
           }}
         />
       )}
 
-      <span className="tracking-wide truncate">{children}</span>
+      <span className="tracking-wide truncate font-medium">{children}</span>
 
       {!dotLeft && (
         <span
           aria-hidden
           className="shrink-0 rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3"
           style={{
-            background: TOKENS.pink,
-            boxShadow: "0 0 10px 1.5px " + TOKENS.pinkSoft,
+            background: theme === "dark" ? TOKENS.pink : "linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)",
+            boxShadow: theme === "dark" 
+              ? "0 0 10px 1.5px " + TOKENS.pinkSoft
+              : "0 0 8px 1px rgba(236,72,153,0.4)",
           }}
         />
       )}
