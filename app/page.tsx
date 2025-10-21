@@ -131,10 +131,13 @@ export default function Page() {
                   : "0 0 8px rgba(236,72,153,0.4)",
               }}
             />
-            {/* label */}
+            {/* label - căn giữa theo thanh bar */}
             <div
-              className="absolute z-20 pointer-events-auto px-1"
-              style={{ left: l.left, top: l.top }}
+              className="absolute z-20 pointer-events-auto px-1 -translate-y-1/2"
+              style={{ 
+                left: l.left, 
+                top: `calc(${b.top} + ${b.height} / 2)`
+              }}
             >
               <div
                 className={[
