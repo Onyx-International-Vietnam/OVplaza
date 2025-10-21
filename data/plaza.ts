@@ -25,15 +25,15 @@ export const FLOORS: Floor[] = [
         tagline: "Nền tảng video & livestream",
         description:
           "Phát trực tiếp, vé livestream, chat realtime, quản lý kênh & VOD.",
-        href: "#",
+        href: "https://ovvideo.com/",
       },
       {
-        id: "ovdating",
-        name: "OVDATING",
+        id: "ovfriends",
+        name: "OVFRIENDS",
         tagline: "Kết nối & hẹn hò an toàn",
         description:
           "Ghép đôi thông minh, chat bảo mật, sự kiện cộng đồng, xác thực linh hoạt.",
-        href: "#",
+        href: "https://ovfriends.com/",
       },
     ],
   },
@@ -59,7 +59,7 @@ export const FLOORS: Floor[] = [
         tagline: "Học trực tuyến & livestream lớp học",
         description:
           "Tạo khoá, lịch live, bài tập, quiz, theo dõi tiến độ học viên.",
-        href: "#",
+        href: "https://ovesl.com/",
       },
     ],
   },
@@ -85,7 +85,7 @@ export const FLOORS: Floor[] = [
         tagline: "E-commerce & Đấu giá",
         description:
           "Mua bán, đặt giá, cửa hàng người bán, quản lý đơn – thanh toán.",
-        href: "#",
+        href: "https://ovbay.vercel.app/",
       },
     ],
   },
@@ -111,7 +111,7 @@ export const FLOORS: Floor[] = [
         tagline: "Video chat cộng đồng",
         description:
           "Phòng video, mời bạn bè, chia sẻ whiteboard / file, ghi hình phiên.",
-        href: "#",
+        href: "https://o-vcafe.vercel.app/",
       },
     ],
   },
